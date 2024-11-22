@@ -1,10 +1,11 @@
 using TestDI.Core;
+using TestDI.Notification;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<ServiceA>();
 builder.Services.AddSingleton<ServiceB>();
-
+builder.Services.AddNotification();
 builder.Services.AddControllersWithViews(options =>
 {
     options.ModelBinderProviders.Insert(0, new CustomModelBinderProvider());
